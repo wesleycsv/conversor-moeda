@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>Conversão de moedas</title>
+  </head>
+  <body>
+    <header>
+      <h1>Conversor de Moedas</h1>
+    </header>
+    <main>
+      <div class="container">
+        <div class="moedas-brl">
+          <h2>BRL <span class="sub-title">BRASILEIRO</span></h2>
+          <input class="brl-valor" placeholder="R$ 0" />
+          <span class="icon-arrow"></span>
+        </div>
+        <div class="all-moedas">
+          <label for="usd" class="btn"
+            >USD <span class="sub-title">Americano</span></label
+          >
+          <input type="radio" data-moedas="usd" id="usd" name="moedas" />
+          <label for="euro" class="btn"
+            >EURO<span class="sub-title">Europa</span></label
+          >
+          <input type="radio" data-moedas="euro" id="euro" name="moedas" />
+        </div>
+        <button class="btn-conveter">CONVETER</button>
+        <div class="result"></div>
+      </div>
+    </main>
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>
