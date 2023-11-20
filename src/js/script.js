@@ -36,16 +36,20 @@ btnConveter.addEventListener("click", () => {
   let valorFormatado;
 
   if (btnRadioEmpty.getAttribute("data-moedas") === "usd") {
-    valorFormatado = Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(brl / moedas);
+    valorFormatado =
+      "Dólar: " +
+      Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(brl / moedas);
   }
   if (btnRadioEmpty.getAttribute("data-moedas") === "euro") {
-    valorFormatado = Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-    }).format(brl / moedas);
+    valorFormatado =
+      "Euro: " +
+      Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR",
+      }).format(brl / moedas);
   }
 
   result.innerHTML = valorFormatado;
