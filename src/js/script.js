@@ -1,8 +1,6 @@
 const btnRadios = document.querySelectorAll(".btn");
 const btnConveter = document.querySelector(".btn-conveter");
 
-let moedas = 0;
-
 btnRadios.forEach((button) => {
   //Remover o evento de ativo
   button.addEventListener("click", (event) => {
@@ -12,17 +10,10 @@ btnRadios.forEach((button) => {
 
     const label = event.currentTarget;
     label.classList.add("ativo");
-
-    if (label.nextElementSibling.getAttribute("data-moedas") === "usd") {
-      moedas = 4.89;
-    }
-    if (label.nextElementSibling.getAttribute("data-moedas") === "euro") {
-      moedas = 5.35;
-    }
   });
 });
 
-btnConveter.addEventListener("click", () => {
+btnConveter.addEventListener("click", async () => {
   const brl = document.querySelector(".brl-valor").value;
   const result = document.querySelector(".result");
   const btnRadioEmpty = document.querySelector('input[type="radio"]:checked');
@@ -33,6 +24,11 @@ btnConveter.addEventListener("click", () => {
   if (btnRadioEmpty === null) {
     return false;
   }
+
+  const resultApi = await fetch(
+    "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL"
+  ).then((resposta) => resposta.json());
+
   let valorFormatado;
 
   if (btnRadioEmpty.getAttribute("data-moedas") === "usd") {
@@ -41,7 +37,7 @@ btnConveter.addEventListener("click", () => {
       Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
-      }).format(brl / moedas);
+      }).format(brl / resultApi.USDBRL.high);
   }
   if (btnRadioEmpty.getAttribute("data-moedas") === "euro") {
     valorFormatado =
@@ -49,7 +45,7 @@ btnConveter.addEventListener("click", () => {
       Intl.NumberFormat("de-DE", {
         style: "currency",
         currency: "EUR",
-      }).format(brl / moedas);
+      }).format(brl / resultApi.EURBRL.high);
   }
 
   result.innerHTML = valorFormatado;
