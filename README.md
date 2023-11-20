@@ -1,4 +1,4 @@
-# Conversor de Moedas
+# Convesor de Moedas
 
 Conversor de Moedas ferramenta desenvolvida para a conversão da moeda **BRL** para **USD** / **EURO** utilizando as tecnologias como **HTML**, **CSS** E **JAVASSCRIPT**.
 
