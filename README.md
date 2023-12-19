@@ -4,3 +4,4 @@ Conversor de Moedas ferramenta desenvolvida para a conversão da moeda **BRL** p
 
 ![enter image description here](https://github.com/wesleycsv/conversor-moeda/blob/master/print.png?raw=true)
 
+Desenvolvedor Web: Wesley Cunha
